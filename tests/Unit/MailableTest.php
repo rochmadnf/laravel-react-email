@@ -4,9 +4,9 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
-use Maantje\ReactEmail\Exceptions\NodeNotFoundException;
-use Maantje\ReactEmail\ReactMailable;
-use Maantje\ReactEmail\Renderer;
+use Rochmadnf\LaravelReactEmail\Exceptions\NodeNotFoundException;
+use Rochmadnf\LaravelReactEmail\ReactMailable;
+use Rochmadnf\LaravelReactEmail\Renderer;
 use Mockery\MockInterface;
 use Symfony\Component\Process\ExecutableFinder;
 
@@ -47,7 +47,9 @@ HTML;
 
 class TestMailable extends ReactMailable
 {
-    public function __construct(public array $user = ['name' => 'test']) { }
+    public function __construct(public array $user = ['name' => 'test'])
+    {
+    }
     public function content()
     {
         return new Content('new-user');

@@ -1,8 +1,8 @@
 <?php
 
-namespace Maantje\ReactEmail;
+namespace Rochmadnf\LaravelReactEmail;
 
-use Maantje\ReactEmail\Exceptions\NodeNotFoundException;
+use Rochmadnf\LaravelReactEmail\Exceptions\NodeNotFoundException;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\ExecutableFinder;
 use Symfony\Component\Process\Process;
@@ -19,7 +19,7 @@ class Renderer extends Process
         parent::__construct([
             $this->resolveNodeExecutable(),
             base_path(config('react-email.tsx_path') ?? '/node_modules/.bin/tsx'),
-            __DIR__ .'/../render.tsx',
+            __DIR__ . '/../render.tsx',
             config('react-email.template_directory') . $view,
             json_encode($data)
         ], base_path());
@@ -53,8 +53,7 @@ class Renderer extends Process
      */
     public static function resolveNodeExecutable(): string
     {
-        if ($executable = config('react-email.node_path') ?? app(ExecutableFinder::class)->find('node'))
-        {
+        if ($executable = config('react-email.node_path') ?? app(ExecutableFinder::class)->find('node')) {
             return $executable;
         }
 

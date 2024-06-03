@@ -1,6 +1,6 @@
 <?php
 
-namespace Maantje\ReactEmail;
+namespace Rochmadnf\LaravelReactEmail;
 
 use Illuminate\Mail\Mailable;
 use Illuminate\Support\HtmlString;

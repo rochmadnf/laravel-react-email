@@ -1,6 +1,6 @@
 <?php
 
-namespace Maantje\ReactEmail;
+namespace Rochmadnf\LaravelReactEmail;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -14,7 +14,7 @@ class ReactEmailServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->publishes([
-            __DIR__.'/../config/react-email.php' => config_path('react-email.php'),
+            __DIR__ . '/../config/react-email.php' => config_path('react-email.php'),
         ]);
     }
 
@@ -27,7 +27,8 @@ class ReactEmailServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->mergeConfigFrom(
-            __DIR__.'/../config/react-email.php', 'react-email'
+            __DIR__ . '/../config/react-email.php',
+            'react-email'
         );
     }
 }
